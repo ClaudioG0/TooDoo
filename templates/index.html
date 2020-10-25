@@ -47,17 +47,21 @@
 							{% endfor %}
 
 			<form action="" class="add_new_list" method="POST">
+				{% csrf_token %}
 				{{ listForm }}
-				<submit class="btn list" aria-label="create new list">+</submit>
+				<input class="btn list" aria-label="create new list" type="submit"
+						name="addlist">+
+				</input>
 			</form>
 						</div>
 			{% endfor %}
 
 			<form action="" class="add_new_group" method="POST">
+				{% csrf_token %}
 				{{ groupForm }}
-				<submit class="btn list" aria-label="create new group"
-						name="addGroup">+
-					</submit>
+				<input class="btn list" aria-label="create new group" type="submit"
+						name="addgroup">+
+					</input>
 			</form>
 		</div>
 
@@ -93,10 +97,11 @@
 				<div class="new-task-creator">
 
 					<form action="" method="POST">
+						{% csrf_token %}
 						{{ itemForm }}
-						<submit class="btn item"
-								aria-label="create new item" name="addItem">+
-						</submit>
+						<input class="btn item" type="submit"
+								aria-label="create new item" name="additem">+
+						</input>
 					</form>
 
 				</div>

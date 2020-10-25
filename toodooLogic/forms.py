@@ -1,7 +1,7 @@
 from django import forms
 from .models import Createtask, CreateGroupOfTasks, CreateList
 
-class AddListForm(forms.Form):
+class AddListForm(forms.ModelForm):
     title = forms.CharField(label="", max_length=40, widget=forms.TextInput(
         attrs={
         'type': 'text', 'class': 'new list fontsize', 'placeholder': 'Add '
@@ -10,11 +10,12 @@ class AddListForm(forms.Form):
 
     class Meta:
         model = CreateList
-        fields = '__all__'
+        fields = ['title']
 
 
 
-class AddGroupForm(forms.Form):
+
+class AddGroupForm(forms.ModelForm):
     title = forms.CharField(label="", max_length=40, widget=forms.TextInput(
         attrs={
         'type': 'text', 'class': 'new list font_size add_group', 'placeholder': 'Add Group',
@@ -22,11 +23,12 @@ class AddGroupForm(forms.Form):
 
     class Meta:
         model = CreateGroupOfTasks
-        fields = "__all__"
+        fields = ['title']
 
 
 
-class AddItemForm(forms.Form):
+
+class AddItemForm(forms.ModelForm):
     title = forms.CharField(label="", max_length=40, widget=forms.TextInput(
         attrs={
         'type': 'text', 'class': 'new item', 'placeholder': 'Add item',
@@ -34,6 +36,7 @@ class AddItemForm(forms.Form):
 
     class Meta:
         model = Createtask
-        fields = "__all__"
+        fields = ['title']
+
 
 

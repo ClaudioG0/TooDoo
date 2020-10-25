@@ -1,10 +1,29 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from toodooLogic.forms import AddListForm, AddGroupForm, AddItemForm
 from toodooLogic.models import Createtask, CreateGroupOfTasks, CreateList
 
 @login_required
 def index(request):
+
+    if request.method == 'POST':
+        if 'addlist' in request.POST:
+            form = AddListForm(request.POST)
+            if form.is_valid():
+                form.save()
+
+        elif 'addgroup' in request.POST:
+            form = AddListForm(request.POST)
+            if form.is_valid():
+                form.save()
+
+        elif 'additem' in request.POST:
+            form = AddListForm(request.POST)
+            if form.is_valid():
+                form.save()
+
+        return redirect('/')
+
     context = {
         'listForm': AddListForm,
         'groupForm': AddGroupForm,
