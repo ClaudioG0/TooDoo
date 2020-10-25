@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>toodoo</title>
+	<link rel="stylesheet" href="../../static/main.css">
+
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+
+
+
+</head>
+<body>
+	<header id="toodoo_header">
+		<div class="header_wrapper">
+			<div class="logo_wrapper">
+				<img src="media/images/toodoo_logo_white.png"
+					 alt="logo"
+					 id="logo">
+			</div>
+
+			<div class="signout_wrapper">
+				<a href="{% url 'logout' %}" id="signout">Sign out</a>
+			</div>
+		</div>
+	</header>
+
+	<div class="todo_body">
+		<div class="all_tasks">
+			{% for group in groups %}
+						<div class="group">
+			<div class="grouping">
+				<button class="btn list group" aria-label="open group">></button>
+				<h2 class="task_list_title">{{ group.title }}</h2>
+			</div>
+							{% for list in lists %}
+			<ul class="task_list">
+				{% if list.whichGroup == group %}
+				<li><a href="">{{ list }}</a></li>
+				{% endif %}
+				<!-- class="active_list"-->
+				<!--<li><a href="">Plans</a></li>
+				<li><a href="">Groceries</a></li>
+				-->
+			</ul>
+							{% endfor %}
+
+			<form action="" class="add_new_list" method="POST">
+				{{ listForm }}
+				<submit class="btn list" aria-label="create new list">+</submit>
+			</form>
+						</div>
+			{% endfor %}
+
+			<form action="" class="add_new_group" method="POST">
+				{{ groupForm }}
+				<submit class="btn list" aria-label="create new group"
+						name="addGroup">+
+					</submit>
+			</form>
+		</div>
+
+		<div class="todo_list">
+			<div class="todo_header">
+				<h2 class="list_title">List Name</h2>
+				<p class="task_count">3 tasks remaining</p>
+			</div>
+
+			<div class="todo_tasklist">
+				<!-------------------------- task 1 -------------------------->
+				<div class="tasks">
+					<div class="task">
+						<input type="checkbox" id="task-1">
+						<label for="task-1"><span class="custom_checkbox"></span>Drink Cofee</label>
+					</div>
+				</div>
+				<!-------------------------- task 2 -------------------------->
+				<div class="tasks">
+					<div class="task">
+						<input type="checkbox" id="task-2">
+						<label for="task-2"><span class="custom_checkbox"></span>Design a prototype</label>
+					</div>
+				</div>
+				<!-------------------------- task 3 -------------------------->
+				<div class="tasks">
+					<div class="task">
+						<input type="checkbox" id="task-3">
+						<label for="task-3"><span class="custom_checkbox"></span>Organize desk</label>
+					</div>
+				</div>
+
+				<div class="new-task-creator">
+
+					<form action="" method="POST">
+						{{ itemForm }}
+						<submit class="btn item"
+								aria-label="create new item" name="addItem">+
+						</submit>
+					</form>
+
+				</div>
+							<div>
+								{% for task in group.createtask_set.all %}
+								<div>{{task}}</div>
+								{% endfor %}
+							</div>
+				<div class="delete_stuff">
+					<button class="btn delete">Clear completed tasks</button>
+					<button class="btn delete">Delete list</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

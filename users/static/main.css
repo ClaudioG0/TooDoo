@@ -1,0 +1,301 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+* {
+  box-sizing: border-box; }
+
+html, body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased; }
+
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table; }
+
+.clearfix:after {
+  clear: both; }
+
+::placeholder {
+  color: #000000; }
+
+::-ms-input-placeholder {
+  color: #000000; }
+
+::-ms-input-placeholder {
+  color: #000000; }
+
+header {
+  padding: 1em 2em; }
+  header .wrapper {
+    display: flex;
+    justify-content: space-between; }
+    header .wrapper .logo_wrapper #logo {
+      max-width: 100px; }
+    header .wrapper .button_wrapper #register {
+      background-color: #4E3AEE;
+      color: #FFFFFF;
+      border-radius: .3em;
+      padding: .6em 1.9em;
+      text-decoration: none; }
+
+#toodoo_header {
+  background-color: #4E3AEE; }
+  #toodoo_header .header_wrapper {
+    display: flex;
+    justify-content: space-between; }
+    #toodoo_header .header_wrapper .logo_wrapper #logo {
+      max-width: 100px; }
+    #toodoo_header .header_wrapper .signout_wrapper #signout {
+      color: #FFFFFF;
+      text-decoration: none; }
+
+.content {
+  display: flex; }
+  .content .copy_wrapper {
+    float: left;
+    width: 50%;
+    margin: 10em 2.5em; }
+    .content .copy_wrapper h1 {
+      font-size: 4em;
+      font-weight: 600; }
+    .content .copy_wrapper p {
+      font-size: 1.2em;
+      width: 60%; }
+
+.content #input_wrapper, .content #signup_wrapper {
+  margin: 10em 2.5em 0 2.5em;
+  width: 50%; }
+  .content #input_wrapper form .signin .input, .content #signup_wrapper form .signin .input {
+    padding: 1.3em 0 1.3em 1.5em;
+    width: 90%;
+    border: 0.15em solid #4E3AEE;
+    border-radius: .7em;
+    font-size: 1.1em;
+    min-width: 380px; }
+  .content #input_wrapper form .signin #email2, .content #input_wrapper form .signin #password, .content #input_wrapper form .signin #confirmpassword, .content #signup_wrapper form .signin #email2, .content #signup_wrapper form .signin #password, .content #signup_wrapper form .signin #confirmpassword {
+    margin-top: .7em; }
+  .content #input_wrapper form .submit, .content #signup_wrapper form .submit {
+    margin-top: 5em; }
+    .content #input_wrapper form .submit #signin, .content #signup_wrapper form .submit #signin {
+      padding: 1.3em 0 1.3em 0;
+      width: 90%;
+      background-color: #4E3AEE;
+      color: #FFFFFF;
+      border: none;
+      border-radius: .7em;
+      font-size: 1.1em;
+      font-weight: 600;
+      min-width: 380px; }
+  .content #input_wrapper .other_option, .content #signup_wrapper .other_option {
+    margin-top: 5em; }
+    .content #input_wrapper .other_option .facebook_wrapper, .content #signup_wrapper .other_option .facebook_wrapper {
+      position: relative; }
+      .content #input_wrapper .other_option .facebook_wrapper #facebook_button, .content #signup_wrapper .other_option .facebook_wrapper #facebook_button {
+        width: 90%;
+        min-width: 380px;
+        max-height: 72px;
+        text-align: center;
+        padding: 1.5em 0;
+        background-color: #3B5998;
+        color: #FFFFFF;
+        border-radius: .7em;
+        font-size: 1.1em;
+        text-decoration: none;
+        position: absolute; }
+      .content #input_wrapper .other_option .facebook_wrapper .facebook_logo, .content #signup_wrapper .other_option .facebook_wrapper .facebook_logo {
+        background-color: #FFFFFF;
+        width: 10%;
+        min-width: 70px;
+        height: 69px;
+        border-radius: .7em;
+        position: absolute;
+        text-align: center;
+        margin: 1.5px 1px; }
+        .content #input_wrapper .other_option .facebook_wrapper .facebook_logo #facebook_image, .content #signup_wrapper .other_option .facebook_wrapper .facebook_logo #facebook_image {
+          height: 2em;
+          padding: .2em;
+          margin-right: auto;
+          margin-left: auto;
+          margin-top: 25%;
+          display: block; }
+    .content #input_wrapper .other_option .google_wrapper, .content #signup_wrapper .other_option .google_wrapper {
+      position: relative; }
+      .content #input_wrapper .other_option .google_wrapper #google_button, .content #signup_wrapper .other_option .google_wrapper #google_button {
+        margin-top: 80px;
+        width: 90%;
+        min-width: 380px;
+        max-height: 72px;
+        text-align: center;
+        padding: 1.5em 0;
+        background-color: #4C8BF5;
+        color: #FFFFFF;
+        border-radius: .7em;
+        font-size: 1.1em;
+        text-decoration: none;
+        position: absolute; }
+      .content #input_wrapper .other_option .google_wrapper .google_logo, .content #signup_wrapper .other_option .google_wrapper .google_logo {
+        background-color: #FFFFFF;
+        width: 10%;
+        min-width: 70px;
+        height: 69px;
+        border-radius: .7em;
+        position: absolute;
+        text-align: center;
+        margin: 1px 1px;
+        margin-top: 81.5px; }
+        .content #input_wrapper .other_option .google_wrapper .google_logo #google_image, .content #signup_wrapper .other_option .google_wrapper .google_logo #google_image {
+          height: 2em;
+          padding: .2em;
+          margin-right: auto;
+          margin-left: auto;
+          margin-top: 25%;
+          display: block; }
+    .content #input_wrapper .other_option .apple_wrapper, .content #signup_wrapper .other_option .apple_wrapper {
+      position: relative; }
+      .content #input_wrapper .other_option .apple_wrapper #apple_button, .content #signup_wrapper .other_option .apple_wrapper #apple_button {
+        margin-top: 160px;
+        width: 90%;
+        min-width: 380px;
+        max-height: 72px;
+        text-align: center;
+        padding: 1.5em 0;
+        background-color: #000000;
+        color: #FFFFFF;
+        border-radius: .7em;
+        font-size: 1.1em;
+        text-decoration: none;
+        position: absolute; }
+      .content #input_wrapper .other_option .apple_wrapper .apple_logo, .content #signup_wrapper .other_option .apple_wrapper .apple_logo {
+        background-color: #FFFFFF;
+        width: 10%;
+        min-width: 70px;
+        height: 69px;
+        border-radius: .7em;
+        position: absolute;
+        text-align: center;
+        margin: 1px 1px;
+        margin-top: 161.5px; }
+        .content #input_wrapper .other_option .apple_wrapper .apple_logo #apple_image, .content #signup_wrapper .other_option .apple_wrapper .apple_logo #apple_image {
+          height: 2em;
+          padding: .2em;
+          margin-right: auto;
+          margin-left: auto;
+          margin-top: 25%;
+          display: block; }
+
+.content #signup_wrapper {
+  margin: 3em 2.5em 0 2.5em; }
+
+[type="checkbox"] {
+  opacity: 0;
+  position: absolute; }
+
+.todo_body {
+  min-height: 100vh;
+  display: flex; }
+  .todo_body form {
+    display: flex; }
+    .todo_body form .fontsize {
+      font-size: 1.1em; }
+    .todo_body form .font_size {
+      font-size: 1.1em;
+      font-weight: 600; }
+  .todo_body .add_new_list {
+    margin-left: 1em; }
+  .todo_body .add_new_group {
+    margin-top: .5em; }
+    .todo_body .add_new_group .add_group {
+      margin-left: 0; }
+  .todo_body .btn {
+    cursor: pointer;
+    background: 0;
+    border: 0;
+    padding: 0;
+    margin-right: .2em; }
+  .todo_body .list {
+    color: #4E3AEE;
+    font-size: 1.9em; }
+  .todo_body .item {
+    color: #4E3AEE;
+    font-size: 2.5em; }
+  .todo_body .delete_stuff {
+    display: flex;
+    justify-content: space-between; }
+    .todo_body .delete_stuff .delete {
+      margin: 2em 0;
+      color: grey; }
+  .todo_body .all_tasks {
+    float: left;
+    width: 35%;
+    padding: 1em 2.5em;
+    border-right: 1px solid #979797; }
+    .todo_body .all_tasks .grouping {
+      display: flex;
+      align-items: center; }
+      .todo_body .all_tasks .grouping .task_list_title {
+        font-size: 1.1em;
+        margin: 0;
+        order: 2; }
+      .todo_body .all_tasks .grouping .group {
+        font-size: 1.3em;
+        font-weight: 600;
+        margin-right: .4em; }
+    .todo_body .all_tasks .task_list {
+      font-size: 1.25em;
+      font-weight: 400;
+      margin: .4em 0 .4em 1em;
+      padding: 0; }
+      .todo_body .all_tasks .task_list .active_list {
+        color: #4E3AEE; }
+      .todo_body .all_tasks .task_list li {
+        margin: .5em 0;
+        list-style: none; }
+      .todo_body .all_tasks .task_list ::before {
+        content: "\2022";
+        color: #4E3AEE;
+        font-weight: bold;
+        font-size: 1.25em;
+        display: inline-block;
+        width: .8em; }
+  .todo_body .todo_list {
+    width: 65%;
+    padding: 1em 2.5em; }
+    .todo_body .todo_list .todo_header {
+      display: flex;
+      justify-content: space-between; }
+      .todo_body .todo_list .todo_header .list_title {
+        margin: 0;
+        font-size: 2em; }
+  .todo_body .todo_tasklist .tasks {
+    font-size: 1.3em;
+    margin: 1.3em 0;
+    padding: 0 0 1em 0;
+    border-bottom: 1px solid #979797; }
+    .todo_body .todo_tasklist .tasks .task label {
+      display: flex;
+      align-items: center; }
+    .todo_body .todo_tasklist .tasks .task .custom_checkbox {
+      --size: 1.2em;
+      display: inline-block;
+      width: var(--size);
+      height: var(--size);
+      margin-right: var(--size);
+      cursor: pointer;
+      border: 1.5px solid #4E3AEE;
+      border-radius: 50%;
+      transform: scale(1);
+      transition: transform 300ms ease-in-out; }
+    .todo_body .todo_tasklist .tasks .task:hover .custom_checkbox,
+    .todo_body .todo_tasklist .tasks .task [type="checkbox"]:focus + label .custom_checkbox {
+      transform: scale(1.1); }
+    .todo_body .todo_tasklist .tasks .task [type="checkbox"]:checked + label .custom_checkbox {
+      background: #4E3AEE;
+      box-shadow: inset 0 0 0px 2px #FFFFFF; }
+    .todo_body .todo_tasklist .tasks .task [type="checkbox"]:checked + label {
+      opacity: .5; }
+  .todo_body .new {
+    background: transparent;
+    border: 0;
+    font-size: 1.25em;
+    outline: none;
+    order: 2; }

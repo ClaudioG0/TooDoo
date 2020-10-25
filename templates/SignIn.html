@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sign In</title>
+
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+	<link rel="stylesheet" href="../../static/main.css">
+
+</head>
+<body>
+	<header>
+		<div class="wrapper">
+			<div class="logo_wrapper">
+				<img src="../../media/images/toodoo_logo.png" alt="logo"
+					 id="logo">
+			</div>
+
+			<div class="button_wrapper">
+				<a href="{% url 'register' %}" id="register">Register</a>
+			</div>
+		</div>
+	</header>
+
+	<section class="content">
+		<div class="copy_wrapper">
+			<h1>Sign In <br> and get stuff done</h1>
+			<p>If you don't have an account you can <span><a
+					href="{% url 'register' %}">register here!</a></span></p>
+		</div>
+
+		<div id="input_wrapper">
+			<form  method="POST">
+				{% csrf_token %}
+				<div class="signin">
+					{{ form }}
+				</div>
+				<div class="submit">
+					<input type="submit" id="signin" value="Sign In">
+				</div>
+			</form>
+
+			<section class="other_option">
+				<div class="facebook_wrapper">
+					<a href="#" id="facebook_button">Continue with Facebook</a>
+					<div class="facebook_logo">
+						<img src="../../media/images/facebook.png" alt="Facebook" id="facebook_image">
+					</div>
+				</div>
+
+				<div class="google_wrapper">
+					<a href="#" id="google_button">Confinue with Google</a>
+					<div class="google_logo">
+						<img src="../../media/images/google.png" alt="Google" id="google_image">
+					</div>
+				</div>
+
+				<div class="apple_wrapper">
+					<a href="#" id="apple_button">Continue with Apple</a>
+					<div class="apple_logo">
+						<img src="../../media/images/apple.png" alt="Apple" id="apple_image">
+					</div>
+				</div>
+			</section>
+		</div>
+	</section>
+</body>
+</html>
