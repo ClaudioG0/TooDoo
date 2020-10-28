@@ -1,22 +1,21 @@
 from django import forms
 from .models import Createtask, CreateGroupOfTasks, CreateList
 
+
 class AddListForm(forms.ModelForm):
     title = forms.CharField(label="", max_length=40, widget=forms.TextInput(
         attrs={
-        'type': 'text', 'class': 'new list fontsize', 'placeholder': 'Add '
-                                                                     'List',
-    'aria-label': 'add list'}))
+            'type': 'text', 'class': 'new list fontsize', 'placeholder':
+                'Add List',
+            'aria-label': 'add list'}))
 
     class Meta:
         model = CreateList
-        fields = ['title']
-
-
+        fields = ['title', 'whichGroup']
 
 
 class AddGroupForm(forms.ModelForm):
-    title = forms.CharField(label="", max_length=40, widget=forms.TextInput(
+    title = forms.CharField(label=" ", max_length=40, widget=forms.TextInput(
         attrs={
         'type': 'text', 'class': 'new list font_size add_group', 'placeholder': 'Add Group',
     'aria-label': 'add group'}))

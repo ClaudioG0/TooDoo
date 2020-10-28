@@ -3,7 +3,7 @@ import datetime
 
 
 class CreateGroupOfTasks(models.Model):
-    title = models.CharField(max_length=40)
+    title = models.CharField(max_length=40, db_index=True)
     pub_date = models.DateTimeField('date published',
                                     default=datetime.datetime.now())
 
@@ -12,8 +12,8 @@ class CreateGroupOfTasks(models.Model):
 
 
 class CreateList(models.Model):
-    whichGroup = models.ForeignKey(CreateGroupOfTasks,
-                                 on_delete=models.CASCADE, default=1)
+    whichGroup = models.ForeignKey(CreateGroupOfTasks, null=True,
+                                   on_delete=models.CASCADE)
     title = models.CharField(max_length=40)
     pub_date = models.DateTimeField('date published', default=datetime.datetime.now())
 
@@ -23,8 +23,10 @@ class CreateList(models.Model):
 
 class Createtask(models.Model):
     whichList = models.ForeignKey(CreateList,
-                                   on_delete=models.CASCADE, default=1)
+                                   on_delete=models.CASCADE, null=True)
     titleTask = models.CharField(max_length=40)
+    pub_date = models.DateTimeField('date published', default=datetime.datetime.now())
+
 
     def __str__(self):
         return self.titleTask

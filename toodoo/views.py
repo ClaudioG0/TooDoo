@@ -6,22 +6,23 @@ from toodooLogic.models import Createtask, CreateGroupOfTasks, CreateList
 @login_required
 def index(request):
 
+
     if request.method == 'POST':
         if 'addlist' in request.POST:
-            form = AddListForm(request.POST)
-            if form.is_valid():
-                form.save()
-
+            form1 = AddListForm(request.POST)
+            if form1.is_valid():
+                form1.save(commit=False)
+                form1.whichGroup = 1
+                form1.save()
         elif 'addgroup' in request.POST:
-            form = AddListForm(request.POST)
-            if form.is_valid():
-                form.save()
+            form2 = AddGroupForm(request.POST)
+            if form2.is_valid():
+                form2.save()
 
         elif 'additem' in request.POST:
-            form = AddListForm(request.POST)
-            if form.is_valid():
-                form.save()
-
+            form3 = AddItemForm(request.POST)
+            if form3.is_valid():
+                form3.save()
         return redirect('/')
 
     context = {
