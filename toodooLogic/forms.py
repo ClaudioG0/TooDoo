@@ -11,7 +11,7 @@ class AddListForm(forms.ModelForm):
 
     class Meta:
         model = CreateList
-        fields = ['title', 'whichGroup']
+        fields = ['title']
 
 
 class AddGroupForm(forms.ModelForm):

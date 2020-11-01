@@ -35,7 +35,22 @@ def index(request):
     }
     return render(request, "index.html", context)
 
-def results(request, list_id):
-    listOfTasks = get_object_or_404(CreateGroupOfTasks,
-                                    pk=list_id)
-    return render(request, 'justTest.html', {"listOfTasks": listOfTasks})
+def add_new_list_view(request, pk_group):
+    pk_group = CreateGroupOfTasks.objects.get(pk=pk_group)
+    form = AddListForm(request.POST or None)
+
+    context = {
+        'listForm': AddListForm,
+        'groupForm': AddGroupForm,
+        'itemForm': AddItemForm,
+        'tasks': Createtask.objects.all(),
+        'groups': CreateGroupOfTasks.objects.all(),
+        'lists': CreateList.objects.all(),
+    }
+
+    if request.POST:
+        if form.is_valid():
+            new_list = form.save(commit=False)
+            new_list.whichGroup = pk_group
+            new_list.save()
+            return render(request, 'index.html', context)

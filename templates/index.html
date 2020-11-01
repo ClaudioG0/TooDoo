@@ -15,9 +15,11 @@
 	<header id="toodoo_header">
 		<div class="header_wrapper">
 			<div class="logo_wrapper">
+				<a href="{% url 'index' %}">
 				<img src="media/images/toodoo_logo_white.png"
 					 alt="logo"
 					 id="logo">
+				</a>
 			</div>
 
 			<div class="signout_wrapper">
@@ -38,11 +40,12 @@
 							{% for list in lists %}
 							{% if list.whichGroup == group %}
 			<ul class="task_list">
-				<li><a href="">{{ list }}</a></li>
+				<li><a href="#">{{ list }}</a></li>
 			</ul>
 							{% endif %}
 							{% endfor %}
-			<form class="add_new_list" method="POST">
+			<form class="add_new_list" method="POST"
+				  action="{% url 'add_new_list' group.pk %}">
 				{% csrf_token %}
 				{{ listForm }}
 				<input class="btn list" aria-label="create new list" type="submit"
