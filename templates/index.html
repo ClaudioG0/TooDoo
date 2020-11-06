@@ -16,7 +16,7 @@
 		<div class="header_wrapper">
 			<div class="logo_wrapper">
 				<a href="{% url 'index' %}">
-				<img src="media/images/toodoo_logo_white.png"
+				<img src="../../media/images/toodoo_logo_white.png"
 					 alt="logo"
 					 id="logo">
 				</a>
@@ -40,17 +40,16 @@
 							{% for list in lists %}
 							{% if list.whichGroup == group %}
 			<ul class="task_list">
-				<li><a href="#">{{ list }}</a></li>
+				<li><a href="{%url 'add_new_list' group.pk list.title %}">{{list}}</a></li>
 			</ul>
 							{% endif %}
 							{% endfor %}
 			<form class="add_new_list" method="POST"
-				  action="{% url 'add_new_list' group.pk %}">
+				  action="{% url 'add_new_list' group.pk list_name %}">
 				{% csrf_token %}
 				{{ listForm }}
 				<input class="btn list" aria-label="create new list" type="submit"
-						name="addlist">+
-				</input>
+						name="addlist" value="+">
 			</form>
 						</div>
 			{% endfor %}
@@ -59,38 +58,42 @@
 				{% csrf_token %}
 				{{ groupForm }}
 				<input class="btn list" aria-label="create new group" type="submit"
-						name="addgroup">+
-					</input>
+						name="addgroup" value="+">
+
 			</form>
 		</div>
 
 		<div class="todo_list">
 			<div class="todo_header">
-				<h2 class="list_title">List Name</h2>
+				<h2 class="list_title">{{list_name}}</h2>
 				<p class="task_count">3 tasks remaining</p>
 			</div>
 
 			<div class="todo_tasklist">
 
-				{% for task in tasks %}
-				<!-------------------------- task 1 -------------------------->
+					{% for task in tasks %}
+					{% if task.whichList == list_name %}
 				<div class="tasks">
 					<div class="task">
-						<input type="checkbox" id="task-1">
-						<label for="task-1">
-							<span class="custom_checkbox"></span>{{ task }}</label>
+						<input type="checkbox" id="{{task.pk}}"
+							   class="taskCheckbox">
+
+						<label for="{{task.pk}}">
+							<span class="custom_checkbox"></span>{{task}}
+                        </label>
 					</div>
 				</div>
-				{% endfor %}
+					{% endif %}
+					{% endfor %}
 
 				<div class="new-task-creator">
 
-					<form action="" method="POST">
+					<form method="POST">
 						{% csrf_token %}
 						{{ itemForm }}
 						<input class="btn item" type="submit"
-								aria-label="create new item" name="additem">+
-						</input>
+								aria-label="create new item" name="additem"
+							   value="+">
 					</form>
 
 				</div>
@@ -102,5 +105,16 @@
 			</div>
 		</div>
 	</div>
+
+
+	<script>
+		$('.task').on('click', function(){
+		task_id = $(this).attr('id')
+		data = {task_id: task_id}
+		$.ajax({    type: "POST",
+            		data: data,
+		success: function(data){
+}
+	</script>
 </body>
 </html>

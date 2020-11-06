@@ -24,9 +24,9 @@ class CreateList(models.Model):
 class Createtask(models.Model):
     whichList = models.ForeignKey(CreateList,
                                    on_delete=models.CASCADE, null=True)
-    titleTask = models.CharField(max_length=40)
+    title = models.CharField(max_length=40)
     pub_date = models.DateTimeField('date published', default=datetime.datetime.now())
 
 
     def __str__(self):
-        return self.titleTask
+        return self.title

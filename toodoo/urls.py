@@ -14,7 +14,7 @@ urlpatterns = [
     path('accounts/login/', login_view, name='login'),
     path('accounts/register/', register_view, name='register'),
     path('accounts/logout/', logout_view, name='logout'),
-    path('list/<int:pk_group>', add_new_list_view,
+    path('list/<int:pk_group>/<str:list_name>', add_new_list_view,
          name='add_new_list')
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

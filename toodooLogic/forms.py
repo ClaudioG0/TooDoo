@@ -7,7 +7,7 @@ class AddListForm(forms.ModelForm):
         attrs={
             'type': 'text', 'class': 'new list fontsize', 'placeholder':
                 'Add List',
-            'aria-label': 'add list'}))
+            'aria-label': 'add list', 'name': 'titleTask'}))
 
     class Meta:
         model = CreateList
@@ -15,10 +15,11 @@ class AddListForm(forms.ModelForm):
 
 
 class AddGroupForm(forms.ModelForm):
-    title = forms.CharField(label=" ", max_length=40, widget=forms.TextInput(
+    title = forms.CharField(label=" ",  max_length=40, \
+                                                     widget=forms.TextInput(
         attrs={
         'type': 'text', 'class': 'new list font_size add_group', 'placeholder': 'Add Group',
-    'aria-label': 'add group'}))
+    'aria-label': 'add group', 'name': 'titleGroup'}))
 
     class Meta:
         model = CreateGroupOfTasks

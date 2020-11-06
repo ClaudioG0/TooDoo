@@ -30,3 +30,4 @@ class GroupOfTasks(admin.ModelAdmin):
 
 admin.site.register(CreateGroupOfTasks, GroupOfLists)
 admin.site.register(CreateList, GroupOfTasks)
+admin.site.register(Createtask)
